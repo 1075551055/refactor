@@ -25,24 +25,25 @@ public class Customer {
         double totalAmount = 0; // 总消费金。
         int frequentRenterPoints = 0; // 常客积点
         Enumeration rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        String headerLines = "Rental Record for " + getName() + "\n";
         while (rentals.hasMoreElements()) {
             Rental eachRental = (Rental) rentals.nextElement();
             // 因为getAmount和getFrequentRenterPoints函数都是从Rental对象获取相关的信息然后进行计算，所以是属于Rental对象的职责
             double thisAmount = eachRental.getAmount();
             frequentRenterPoints += eachRental.getFrequentRenterPoints();
-            result += "\t" + eachRental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
+            headerLines += "\t" + eachRental.getMovie().getTitle() + "\t"
+                    + String.valueOf(thisAmount) + "\n";
         }
-        return result + getFooterPrintedLines(totalAmount, frequentRenterPoints);
+        return getPrintedResult(totalAmount, frequentRenterPoints, headerLines);
     }
 
-    private String getFooterPrintedLines(double totalAmount, int frequentRenterPoints) {
+    private String getPrintedResult(double totalAmount, int frequentRenterPoints, String headerLines) {
         // add footer lines（结尾打印）
         String footerLines = ("Amount owed is " + String.valueOf(totalAmount) + "\n");
         footerLines += "You earned " + String.valueOf(frequentRenterPoints)
                 + " frequent renter points";
-        return footerLines;
+        return headerLines + footerLines;
     }
+
 }
