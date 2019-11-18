@@ -79,7 +79,7 @@ public class CustomerTest {
         Movie childrenMovie = new Movie("儿童类电影", Movie.CHILDRENS);
         Rental childrenRental = new Rental(childrenMovie, 2);
         customer.addRental(childrenRental);
-        Movie newMovie = new Movie("新类型电影", Movie.REGULAR);
+        Movie newMovie = new Movie("新类型电影", Movie.NEW_RELEASE);
         Rental newRental = new Rental(newMovie, 2);
         customer.addRental(newRental);
 
@@ -87,9 +87,9 @@ public class CustomerTest {
 
         String expectedResult = "Rental Record for " + customer.getName() + "\n" +
                 "\t" + childrenMovie.getTitle() + "\t1.5\n" +
-                "\t" + newMovie.getTitle() + "\t2.0\n" +
-                "Amount owed is 3.5\n" +
-                "You earned 2 frequent renter points";
+                "\t" + newMovie.getTitle() + "\t6.0\n" +
+                "Amount owed is 7.5\n" +
+                "You earned 3 frequent renter points";
         Assert.assertEquals(expectedResult, statement);
     }
 
@@ -99,7 +99,7 @@ public class CustomerTest {
         Movie regularMovie = new Movie("常规类电影", Movie.CHILDRENS);
         Rental regularRental = new Rental(regularMovie, 2);
         customer.addRental(regularRental);
-        Movie newMovie = new Movie("新类型电影", Movie.REGULAR);
+        Movie newMovie = new Movie("新类型电影", Movie.NEW_RELEASE);
         Rental newRental = new Rental(newMovie, 2);
         customer.addRental(newRental);
 
@@ -107,9 +107,10 @@ public class CustomerTest {
 
         String expectedResult = "Rental Record for " + customer.getName() + "\n" +
                 "\t" + regularMovie.getTitle() + "\t1.5\n" +
-                "\t" + newMovie.getTitle() + "\t2.0\n" +
-                "Amount owed is 3.5\n" +
-                "You earned 2 frequent renter points";
+                "\t" + newMovie.getTitle() + "\t6.0\n" +
+                "Amount owed is 7.5\n" +
+                "You earned 3 frequent renter points";
         Assert.assertEquals(expectedResult, statement);
     }
+
 }
