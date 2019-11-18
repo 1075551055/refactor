@@ -26,7 +26,7 @@ public class Rental {
         // add frequent renter points （累计常客积点。
         frequentRenterPoints++;
         // add bonus for a two day new release rental
-        if ((this.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+        if ((this.getMovie() instanceof NewMovie)
                 && this.getDaysRented() > 1)
             frequentRenterPoints++;
         return frequentRenterPoints;

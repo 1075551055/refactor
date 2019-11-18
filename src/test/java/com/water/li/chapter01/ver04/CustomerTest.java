@@ -7,7 +7,7 @@ public class CustomerTest {
     @Test
     public void testChilrenMovie() {
         Customer customer = new Customer("customer1");
-        Movie childrenMovie = new ChidrenMovie("儿童类电影", Movie.CHILDRENS);
+        Movie childrenMovie = new ChidrenMovie("儿童类电影");
         Rental rental = new Rental(childrenMovie, 2);
         customer.addRental(rental);
 
@@ -23,7 +23,7 @@ public class CustomerTest {
     @Test
     public void testRecularMovie() {
         Customer customer = new Customer("customer1");
-        Movie regularMovie = new RegularMovie("常规类电影", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("常规类电影");
         Rental rental = new Rental(regularMovie, 2);
         customer.addRental(rental);
 
@@ -39,7 +39,7 @@ public class CustomerTest {
     @Test
     public void testNewMovie() {
         Customer customer = new Customer("customer1");
-        Movie newMovie = new NewMovie("新类型电影", Movie.NEW_RELEASE);
+        Movie newMovie = new NewMovie("新类型电影");
         Rental rental = new Rental(newMovie, 2);
         customer.addRental(rental);
 
@@ -55,10 +55,10 @@ public class CustomerTest {
     @Test
     public void testChildrenAndRecularMovie() {
         Customer customer = new Customer("customer1");
-        Movie childrenMovie = new ChidrenMovie("儿童类电影", Movie.CHILDRENS);
+        Movie childrenMovie = new ChidrenMovie("儿童类电影");
         Rental childrenRental = new Rental(childrenMovie, 2);
         customer.addRental(childrenRental);
-        Movie regularMovie = new RegularMovie("常规类电影", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("常规类电影");
         Rental recularRental = new Rental(regularMovie, 2);
         customer.addRental(recularRental);
 
@@ -75,10 +75,10 @@ public class CustomerTest {
     @Test
     public void testChildrenAndNewMovie() {
         Customer customer = new Customer("customer1");
-        Movie childrenMovie = new ChidrenMovie("儿童类电影", Movie.CHILDRENS);
+        Movie childrenMovie = new ChidrenMovie("儿童类电影");
         Rental childrenRental = new Rental(childrenMovie, 2);
         customer.addRental(childrenRental);
-        Movie newMovie = new NewMovie("新类型电影", Movie.NEW_RELEASE);
+        Movie newMovie = new NewMovie("新类型电影");
         Rental newRental = new Rental(newMovie, 2);
         customer.addRental(newRental);
 
@@ -95,10 +95,10 @@ public class CustomerTest {
     @Test
     public void testRegularAndNewMovie() {
         Customer customer = new Customer("customer1");
-        Movie regularMovie = new RegularMovie("常规类电影", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("常规类电影");
         Rental regularRental = new Rental(regularMovie, 2);
         customer.addRental(regularRental);
-        Movie newMovie = new NewMovie("新类型电影", Movie.NEW_RELEASE);
+        Movie newMovie = new NewMovie("新类型电影");
         Rental newRental = new Rental(newMovie, 2);
         customer.addRental(newRental);
 

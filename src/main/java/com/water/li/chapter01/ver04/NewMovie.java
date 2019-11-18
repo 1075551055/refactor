@@ -1,8 +1,8 @@
 package com.water.li.chapter01.ver04;
 
 public class NewMovie extends Movie {
-    public NewMovie(String title, int priceCode) {
-        super(title, priceCode);
+    public NewMovie(String title) {
+        super(title);
     }
 
     @Override
