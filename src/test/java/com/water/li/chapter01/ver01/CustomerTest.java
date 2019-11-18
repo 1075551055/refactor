@@ -96,7 +96,7 @@ public class CustomerTest {
     @Test
     public void testRegularAndNewMovie() {
         Customer customer = new Customer("customer1");
-        Movie regularMovie = new Movie("常规类电影", Movie.CHILDRENS);
+        Movie regularMovie = new Movie("常规类电影", Movie.REGULAR);
         Rental regularRental = new Rental(regularMovie, 2);
         customer.addRental(regularRental);
         Movie newMovie = new Movie("新类型电影", Movie.NEW_RELEASE);
@@ -106,11 +106,12 @@ public class CustomerTest {
         String statement = customer.statement();
 
         String expectedResult = "Rental Record for " + customer.getName() + "\n" +
-                "\t" + regularMovie.getTitle() + "\t1.5\n" +
+                "\t" + regularMovie.getTitle() + "\t2.0\n" +
                 "\t" + newMovie.getTitle() + "\t6.0\n" +
-                "Amount owed is 7.5\n" +
+                "Amount owed is 8.0\n" +
                 "You earned 3 frequent renter points";
         Assert.assertEquals(expectedResult, statement);
     }
+
 
 }
