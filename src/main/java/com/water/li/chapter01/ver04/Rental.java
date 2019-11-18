@@ -18,24 +18,7 @@ public class Rental {
     }
 
     public double getAmount() {
-        int priceCode = this.getMovie().getPriceCode();
-        double amount = 0;
-        switch (priceCode) { // 取得影片出租价格
-            case Movie.REGULAR: // 普通片
-                amount += 2;
-                if (this.getDaysRented() > 2)
-                    amount += (this.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE: // 新片
-                amount += this.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS: // 儿童。
-                amount += 1.5;
-                if (this.getDaysRented() > 3)
-                    amount += (this.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return amount;
+        return this.getMovie().getAmount(this.getDaysRented());
     }
 
     public int getFrequentRenterPoints() {
