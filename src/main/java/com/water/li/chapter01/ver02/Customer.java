@@ -30,7 +30,7 @@ public class Customer {
             Rental eachRental = (Rental) rentals.nextElement(); // 取得一笔租借记。
             // determine amounts for eachRental line
             int priceCode = eachRental.getMovie().getPriceCode();
-            double thisAmount = getThisAmount(eachRental, priceCode);
+            double thisAmount = getThisAmount(eachRental);
             frequentRenterPoints += getFrequentRenterPoints(eachRental, priceCode);
             // show figures for this rental（显示此笔租借记录）
             result += "\t" + eachRental.getMovie().getTitle() + "\t"
@@ -40,9 +40,9 @@ public class Customer {
         return result + getFooterPrintedLines(totalAmount, frequentRenterPoints);
     }
 
-    private double getThisAmount(Rental eachRental, int priceCode) {
+    private double getThisAmount(Rental eachRental) {
         double thisAmount = 0;
-        switch (priceCode) { // 取得影片出租价格
+        switch (eachRental.getMovie().getPriceCode()) { // 取得影片出租价格
             case Movie.REGULAR: // 普通片
                 thisAmount += 2;
                 if (eachRental.getDaysRented() > 2)

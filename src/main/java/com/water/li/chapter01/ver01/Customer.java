@@ -3,6 +3,7 @@ package com.water.li.chapter01.ver01;
 import java.util.Enumeration;
 import java.util.Vector;
 
+// 重构第一步：添加测试
 public class Customer {
     private String _name; // 姓名
     private Vector _rentals = new Vector(); // 租借记

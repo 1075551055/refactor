@@ -5,6 +5,7 @@ import java.util.Vector;
 
 // tips: 个人总结代码最低要求得符合以下三原则：1. 函数是否只做一件事；2.是否有重复代码；3.函数或者属性是否属于当前类（职责划分）
 // 该版本所做内容：运用设计模式重构
+// 重构过程的思考：1.程序是否能应对未来的各种变化（扩展性）？把相同的部分留下，变化部分抽取封装，这样可以应对各种未来可能发生的改变（可以参考head first设计模式），例如打印功能
 public class Customer {
     private String _name; // 姓名
     private Vector _rentals = new Vector(); // 租借记
