@@ -5,19 +5,31 @@ public class Movie {
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     private String _title;
-    private int _priceCode;
+    private Price _price;
 
     public Movie(String title, int priceCode) {
         _title = title;
-        _priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public int getPriceCode() {
-        return _priceCode;
+        return _price.getPriceCode();
     }
 
     public void setPriceCode(int priceCode) {
-        _priceCode = priceCode;
+        switch (priceCode) {
+            case Movie.REGULAR: // 普通片
+                _price = new RegularPrice();
+                break;
+            case Movie.NEW_RELEASE: // 新片
+                _price = new NewPrice();
+                break;
+            case Movie.CHILDRENS: // 儿童。
+                _price = new ChildrenPrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect price code");
+        }
     }
 
     public String getTitle() {
@@ -26,24 +38,7 @@ public class Movie {
 
     // 都是在操控movie的数据去获取amount，所以这个函数要移到movie类中，而不是rental类
     public double getAmount(int daysRented) {
-        int priceCode = this.getPriceCode();
-        double amount = 0;
-        switch (priceCode) { // 取得影片出租价格
-            case Movie.REGULAR: // 普通片
-                amount += 2;
-                if (daysRented > 2)
-                    amount += (daysRented - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE: // 新片
-                amount += daysRented * 3;
-                break;
-            case Movie.CHILDRENS: // 儿童。
-                amount += 1.5;
-                if (daysRented > 3)
-                    amount += (daysRented - 3) * 1.5;
-                break;
-        }
-        return amount;
+        return _price.getAmount(daysRented);
     }
 
     // 都是在操控movie的数据去获取amount，所以这个函数要移到movie类中，而不是rental类
