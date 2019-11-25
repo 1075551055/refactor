@@ -43,10 +43,7 @@ public class Movie {
 
     // 都是在操控movie的数据去获取amount，所以这个函数要移到movie类中，而不是rental类
     public int getFrequentRenterPoints(int daysRented) {
-        if ((getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
+        return _price.getFrequentRenterPoints(daysRented);
+
     }
 }
